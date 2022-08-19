@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482053244427",
+    "project_id": "refreshments-8de78",
+    "storage_bucket": "refreshments-8de78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482053244427:android:7120b32687a57f48d1690e",
+        "android_client_info": {
+          "package_name": "com.example.ca1_refreshments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482053244427-p7chagjs7ijb8tn6vi58ieseqpifen0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA50aBAwkLsDHWe2Y31E49sbuLYCNyruuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482053244427-p7chagjs7ijb8tn6vi58ieseqpifen0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
