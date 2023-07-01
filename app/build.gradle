@@ -5,6 +5,8 @@ plugins {
 apply plugin: 'kotlin-android'
 
 android {
+
+    namespace 'com.adowney.refreshments'
     compileSdk 33
 
     defaultConfig {
@@ -30,14 +32,20 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         viewBinding true
     }
+
 }
 
 dependencies {
 
     def nav_version = "2.3.5"
+
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+
 
     implementation 'androidx.databinding:viewbinding:7.4.2'
     implementation 'androidx.core:core-ktx:1.9.0'

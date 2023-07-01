@@ -6,33 +6,36 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.SearchView
+import com.adowney.refreshments.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Configuring binding
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         supportActionBar?.hide()
 
         val searchView = findViewById<SearchView>(R.id.searchView)
-        val b1 = findViewById<Button>(R.id.button)
-        val b3 = findViewById<Button>(R.id.button3)
-        val go = findViewById<Button>(R.id.Go)
-
         searchView.bringToFront()
 
         // Three navigational buttons in the home activity
-        b1.setOnClickListener {
+        binding.button.setOnClickListener() {
             val intent1 = Intent(applicationContext, AccountActivity::class.java)
             startActivity(intent1)
         }
 
-        b3.setOnClickListener {
+        binding.button3.setOnClickListener {
             val intent3 = Intent(applicationContext, FiltersActivity::class.java)
             startActivity(intent3)
         }
 
-        go.setOnClickListener {
+        binding.Go.setOnClickListener {
             val intentGo = Intent(applicationContext, ResultsActivity::class.java)
             startActivity(intentGo)
         }
