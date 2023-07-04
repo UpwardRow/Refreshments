@@ -12,10 +12,10 @@ interface APIInterface {
     val ingredients : String
     val searchBarValue : String
 
-    //Getting input from FiltersAcitivty and putting into the link String
+    //Getting input from FiltersActivity and putting into the link String
     @GET("recipes/complexSearch?apiKey=***REMOVED***")
     fun getSpoonacularData(
-        @Query("excludeIngredients") ingredients : String,
+        @Query("excludeIngredients") ingredients : List<String>,
         @Query("query") searchBarValue : String
     ): Call<SpoonacularData>
 

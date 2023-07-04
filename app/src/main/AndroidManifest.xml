@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CA1_Refreshments.NoActionBar">
-<!--        <activity-->
-<!--            android:name=".ResultsActivity"-->
-<!--            android:exported="true" />-->
+        <activity
+            android:name=".ResultsActivity"
+            android:exported="true" />
         <activity
             android:name=".FiltersActivity"
             android:exported="true" />

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">CA1_Refreshments</string>
-    <string name="salad_concotion">Salad Concotion</string>
+    <string name="app_name">Refreshments</string>
+    <string name="salad_concotion">Salad Concoction</string>
     <string name="go_to_second_activity">Go to second activity</string>
     <string name="account">Account</string>
     <string name="filters">Filter</string>
@@ -35,4 +35,6 @@
     <string name="spiced_quinoa_with_almonds_and_feta_cheese_2">Spiced Quinoa With Almonds and Feta Cheese</string>
     <string name="imperial_measurements">Imperial Measurements</string>
     <string name="save">Save</string>
+    <string name="link">Link</string>
+    <string name="recipe_title">Recipe Title</string>
 </resources>

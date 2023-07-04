@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CA1_Refreshments</string>
+    <string name="app_name">Refreshments</string>
     <string name="salad_concotion">Sailéad  Éagsúlacht</string>
     <string name="go_to_second_activity">Téigh go dtí an dara gníomhaíocht</string>
     <string name="account">Cuntas</string>
