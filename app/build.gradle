@@ -17,11 +17,26 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Creating an instance of Properties class
+        Properties properties = new Properties()
+
+        // Loading the a project file called local.properties
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        // Here I am reading a field from the local.properties file
+        buildConfigField "String",
+                "SPOONACULAR_API_KEY",
+                "\"${properties.getProperty("SPOONACULAR_API_KEY")}\""
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            /*
+            Making minifyEnabled true will enable code obfuscation when I'm deploying it to the Play
+            Store for the release build. Allowing the application to be more secure to attacks!
+             */
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,8 +50,8 @@ android {
 
     buildFeatures {
         viewBinding true
+        buildConfig = true
     }
-
 }
 
 dependencies {
@@ -45,7 +60,6 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
-
 
     implementation 'androidx.databinding:viewbinding:7.4.2'
     implementation 'androidx.core:core-ktx:1.9.0'
