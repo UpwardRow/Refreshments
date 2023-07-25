@@ -1,11 +1,9 @@
 package com.adowney.refreshments
 
-import com.google.gson.annotations.SerializedName
-
-//This class defines what Retrofit looks for when formatting the JSON
+/*
+List of JSON items. This is for correct formatting of JSON file, as there is an object instead of
+an array at the start of the JSON file
+ */
 data class Result(
-    val id: Int,
-    val image: String,
-    val imageType: String,
-    @SerializedName("title") val recipeTitle: String
+    val hits: List<HitsData>
 )
