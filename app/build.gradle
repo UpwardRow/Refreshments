@@ -26,8 +26,12 @@ android {
 
         // Here I am reading a field from the local.properties file
         buildConfigField "String",
-                "SPOONACULAR_API_KEY",
-                "\"${properties.getProperty("SPOONACULAR_API_KEY")}\""
+                "EDAMAM_APP_KEY",
+                "\"${properties.getProperty("EDAMAM_APP_KEY")}\""
+
+        buildConfigField "String",
+                "EDAMAM_APP_ID",
+                "\"${properties.getProperty("EDAMAM_APP_ID")}\""
     }
 
     buildTypes {

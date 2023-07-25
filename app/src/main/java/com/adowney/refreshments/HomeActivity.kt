@@ -3,12 +3,17 @@ package com.adowney.refreshments
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.SearchView
 import com.adowney.refreshments.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+
+    companion object {
+        private const val TAG = "HomeActivity"
+        var USER_QUERY = ""
+    }
 
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +42,9 @@ class HomeActivity : AppCompatActivity() {
 
         binding.Go.setOnClickListener {
             val intentGo = Intent(applicationContext, ResultsActivity::class.java)
+            // Printing the text in the search bar
+            Log.d(TAG, searchView.query.toString())
+            USER_QUERY = searchView.query.toString()
             startActivity(intentGo)
         }
 
