@@ -1,0 +1,21 @@
+{
+    "appName": "refreshments",
+    "roleName": "pinpointLambdaRole6ef846c7",
+    "cloudformationPolicyName": "cloudformationPolicy6ef846c7",
+    "cloudWatchPolicyName": "cloudWatchPolicy6ef846c7",
+    "pinpointPolicyName": "pinpointPolicy6ef846c7",
+    "authPolicyName": "pinpoint_amplify_6ef846c7",
+    "unauthPolicyName": "pinpoint_amplify_6ef846c7",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

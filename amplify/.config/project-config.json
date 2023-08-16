@@ -1,0 +1,13 @@
+{
+  "projectName": "Refreshments",
+  "version": "3.1",
+  "frontend": "android",
+  "providers": [
+    "awscloudformation"
+  ],
+  "android": {
+    "config": {
+      "ResDir": "app/src/main/res"
+    }
+  }
+}
