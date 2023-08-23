@@ -13,10 +13,6 @@
     },
     "categories": {
       "auth": {
-        "refreshments": {},
-        "userPoolGroups": {}
-      },
-      "analytics": {
         "refreshments": {}
       },
       "api": {

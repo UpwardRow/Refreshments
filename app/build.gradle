@@ -94,7 +94,7 @@ dependencies {
 //    implementation 'com.google.android.material:material:1.1.0'
 
     // Amplify plugins
-    implementation 'com.amplifyframework:core:2.8.7'
+    implementation 'com.amplifyframework:core:2.11.1'
     implementation 'com.amplifyframework:aws-api:2.0.0'
     implementation 'com.amplifyframework:aws-datastore:2.0.0'
     implementation 'com.amplifyframework:aws-auth-cognito:2.11.1'

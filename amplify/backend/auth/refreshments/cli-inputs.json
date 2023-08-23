@@ -53,10 +53,7 @@
     "breakCircularDependency": true,
     "useEnabledMfas": true,
     "dependsOn": [],
-    "userPoolGroupList": [
-      "admin",
-      "editors"
-    ],
+    "userPoolGroupList": [],
     "hostedUI": false,
     "authProviders": []
   }

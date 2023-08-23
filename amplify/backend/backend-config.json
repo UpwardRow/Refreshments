@@ -1,10 +1,5 @@
 {
-  "analytics": {
-    "refreshments": {
-      "providerPlugin": "awscloudformation",
-      "service": "Pinpoint"
-    }
-  },
+  "analytics": {},
   "api": {
     "Refreshments": {
       "dependsOn": [
@@ -66,22 +61,6 @@
       "providerPlugin": "awscloudformation",
       "service": "Cognito",
       "serviceType": "managed"
-    },
-    "userPoolGroups": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "refreshments"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito-UserPool-Groups"
     }
   }
 }
