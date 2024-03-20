@@ -2,18 +2,19 @@ package com.adowney.refreshments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.adowney.refreshments.databinding.ActivitySignUpBinding
-import com.amplifyframework.auth.AuthUserAttributeKey
-import com.amplifyframework.auth.options.AuthSignUpOptions
-import com.amplifyframework.core.Amplify
+import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : AppCompatActivity() {
 
+    companion object{
+        private const val TAG = "SignUpActivity"
+    }
+
     private lateinit var binding: ActivitySignUpBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,64 +23,56 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // With this listener the user can click if they already have an account
+        binding.alreadyRegistered.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            finish()
+            startActivity(intent)
+        }
+
         binding.signUpButton.setOnClickListener {
-            val firstName = binding.firstNameTyped.text.toString()
-            val lastName = binding.lastNameTyped.text.toString()
             val email = binding.emailCreateTyped.text.toString()
             val password = binding.passwordCreateTyped.text.toString()
-            val confirmPassword = binding.passwordConfirmationTyped.text.toString()
+            val confirmPassword = binding.passwordConfirmationTyped.text
+                .toString()
 
-            createUser(firstName, lastName, email, password, confirmPassword)
-
-            val homeIntent = Intent(applicationContext, HomeActivity::class.java)
-            startActivity(homeIntent)
-        }
-    }
-
-    private fun createUser(
-        firstName: String,
-        lastName: String,
-        email: String,
-        password: String,
-        confirmPassword: String
-    ) {
-        if (firstName.isNotEmpty() &&
-            lastName.isNotEmpty() &&
-            email.isNotEmpty() &&
-            password.isNotEmpty() &&
-            confirmPassword.isNotEmpty()
-        ) {
-            if (password == confirmPassword) {
-                val options = AuthSignUpOptions.builder()
-                    .userAttribute(AuthUserAttributeKey.email(), email)
-                    .userAttribute(AuthUserAttributeKey.name(), firstName)
-                    .userAttribute(AuthUserAttributeKey.familyName(), lastName)
-                    .build()
-                /*
-                    Note: Cognito user pools store data in Amazon Cloud Directory, encrypting data
-                    at rest and in transit by using 256-bit encryption keys.
-                */
-                Amplify.Auth.signUp(email, password, options,
-                    { Log.i("AuthQuickStart", "Sign up succeeded: $it") },
-                    { Log.e("AuthQuickStart", "Sign up failed", it) }
-                )
-
-                // Here I am passing the email from this activity to the fragment
-                val code_fragment = Fragment()
-
-                val bundle = Bundle().apply { putString("user_email", email) }
-                code_fragment.arguments = bundle
-
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, code_fragment)
-                    .commit()
-
+            /*
+            All of the conditions inside this statement is for verifying the credentials entered
+                with the users on Firebase
+            */
+            if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                if (password == confirmPassword) {
+                    firebaseAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val intent = Intent(this, SignInActivity::class.java)
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    it.exception.toString(),
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
+                        }
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Passwords do not match",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
             } else {
                 Toast.makeText(
-                    applicationContext,
-                    "Passwords do not match",
-                    Toast.LENGTH_LONG
-                ).show()
+                    this,
+                    "Fields must not be empty",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
             }
         }
     }

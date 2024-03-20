@@ -85,6 +85,10 @@ password.txt
 # Includes important data such as API Keys, very important!
 local.properties
 
+# Google Firebase files
+app/google-services.json
+app/proguard-rules.pro
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*

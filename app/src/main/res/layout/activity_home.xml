@@ -129,7 +129,7 @@
         app:layout_constraintStart_toEndOf="@+id/ImageView"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
-    <SearchView
+    <android.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="259dp"
         android:layout_height="36dp"

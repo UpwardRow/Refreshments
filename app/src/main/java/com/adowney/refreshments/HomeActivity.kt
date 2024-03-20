@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.SearchView
 import com.adowney.refreshments.databinding.ActivityHomeBinding
-import com.amplifyframework.auth.cognito.AWSCognitoAuthSession
-import com.amplifyframework.auth.result.AuthSessionResult
-import com.amplifyframework.core.Amplify
 
 class HomeActivity : AppCompatActivity() {
 
@@ -92,50 +89,5 @@ class HomeActivity : AppCompatActivity() {
                 searchView.onActionViewExpanded()
             }
         })
-
-        /*
-            Amplify auth session, "The isSignedIn property of the authSession will be false on first
-            use since the user has not signed in yet"
-         */
-        Amplify.Auth.fetchAuthSession(
-            {
-                val session = it as AWSCognitoAuthSession
-                when (session.identityIdResult.type) {
-                    AuthSessionResult.Type.SUCCESS ->
-                        Log.i(
-                            "AuthQuickStart",
-                            // This id is generated for guests accessing the identity pool
-                            "IdentityId = ${session.identityIdResult.value}",
-                        )
-
-                    AuthSessionResult.Type.FAILURE ->
-                        Log.w(
-                            "AuthQuickStart",
-                            "IdentityId not found",
-                            session.identityIdResult.error
-                        )
-                }
-            },
-            { Log.e("AuthQuickStart", "Failed to fetch session", it) }
-        )
-        checkIfUserIsSignedIn()
-    }
-
-    private fun checkIfUserIsSignedIn() {
-        Amplify.Auth.fetchAuthSession(
-            { result ->
-                if (!result.isSignedIn) {
-                    val intentSignIn = Intent(applicationContext, SignInActivity::class.java)
-                    startActivity(intentSignIn)
-                }
-                // If user is not signed in, continue with normal flow
-            },
-            { error ->
-                // Handle error fetching auth session. Taking the user to sign in is more secure.
-                Log.e("AmplifyQuickstart", "Failed to fetch auth session", error)
-                val intentSignIn = Intent(applicationContext, SignInActivity::class.java)
-                startActivity(intentSignIn)
-            }
-        )
     }
 }
