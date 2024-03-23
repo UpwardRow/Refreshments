@@ -89,5 +89,7 @@ class HomeActivity : AppCompatActivity() {
                 searchView.onActionViewExpanded()
             }
         })
+
+        // This is a test comment, blah blah blah
     }
 }
