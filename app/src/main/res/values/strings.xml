@@ -60,4 +60,5 @@
     <string name="type_your_first_name">Type Your First Name</string>
     <string name="type_your_last_name">Type Your Last Name</string>
     <string name="search">search\n</string>
+    <string name="search_hint">Thai Green Curry</string>
 </resources>

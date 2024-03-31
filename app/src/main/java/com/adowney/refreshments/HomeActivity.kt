@@ -1,13 +1,18 @@
 package com.adowney.refreshments
 
+import android.app.SearchManager
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import com.adowney.refreshments.databinding.ActivityHomeBinding
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -45,7 +50,8 @@ class HomeActivity : AppCompatActivity() {
                     // Check if the screen is ready
                     return if (isReady) {
                         // The content is ready, start drawing.
-                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        content.viewTreeObserver
+                            .removeOnPreDrawListener(this)
                         true
                     } else {
                         // The content is not ready, wait.
@@ -58,36 +64,33 @@ class HomeActivity : AppCompatActivity() {
         // Configuring binding
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
-        supportActionBar?.hide()
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.action_bar, menu);
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu.findItem(R.id.ic_search).actionView as SearchView
+        val component = ComponentName(this, ResultsActivity::class.java)
+        val searchableInfo = searchManager.getSearchableInfo(component)
+        searchView.setSearchableInfo(searchableInfo)
+        return true;
+    }
 
-        val searchView = findViewById<SearchView>(R.id.searchView)
-        searchView.bringToFront()
-
-        // Three navigational buttons in the home activity
-        binding.button.setOnClickListener() {
-            val accountIntent = Intent(applicationContext, AccountActivity::class.java)
-            startActivity(accountIntent)
-        }
-
-        binding.button3.setOnClickListener {
-            val filtersIntent = Intent(applicationContext, FiltersActivity::class.java)
-            startActivity(filtersIntent)
-        }
-
-        binding.Go.setOnClickListener {
-            val resultsIntent = Intent(applicationContext, ResultsActivity::class.java)
-            // Printing the text in the search bar
-            Log.d(TAG, searchView.query.toString())
-            USER_QUERY = searchView.query.toString()
-            startActivity(resultsIntent)
-        }
-
-        // Expands the searchView at the home when clicked
-        searchView.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                searchView.onActionViewExpanded()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId){
+            R.id.ic_search -> {
+                // Handling the search action
+                val searchView = R.id.ic_search
+                true
             }
-        })
+            R.id.notifications_button -> {
+                val accountIntent = Intent(applicationContext,
+                    AccountActivity::class.java);
+                startActivity(accountIntent);
+                true;
+            }
+            // Handle opening account section
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

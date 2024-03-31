@@ -43,7 +43,6 @@ class ResultsActivity : AppCompatActivity() {
         binding.recyclerviewRecipes.layoutManager = linearLayoutManager
 
         getMyEdamamData()
-        supportActionBar?.hide()
     }
 
     private fun getMyEdamamData() {
