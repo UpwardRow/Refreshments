@@ -1,17 +1,17 @@
 package com.adowney.refreshments
 
 import android.app.SearchManager
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewTreeObserver
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import com.adowney.refreshments.databinding.ActivityHomeBinding
+import androidx.appcompat.widget.SearchView
 
 
 class HomeActivity : AppCompatActivity() {
@@ -67,13 +67,31 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
+
+        //Inflating menu with items
         menuInflater.inflate(R.menu.action_bar, menu);
+
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+
+        // Initialising menu item search bar, with the id and taking that object
         val searchView = menu.findItem(R.id.ic_search).actionView as SearchView
-        val component = ComponentName(this, ResultsActivity::class.java)
-        val searchableInfo = searchManager.getSearchableInfo(component)
-        searchView.setSearchableInfo(searchableInfo)
-        return true;
+        searchView.queryHint = "Pizza"
+
+        searchView.setOnQueryTextListener(object :  SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                Log.d(TAG, "Text change in search");
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                //On submit via enter send entire query
+                Log.d(TAG, searchView.query.toString());
+                USER_QUERY = searchView.query.toString();
+                return false
+            }
+        })
+        return super.onCreateOptionsMenu(menu);
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -81,6 +99,8 @@ class HomeActivity : AppCompatActivity() {
             R.id.ic_search -> {
                 // Handling the search action
                 val searchView = R.id.ic_search
+
+                Log.d(TAG, "Search being used")
                 true
             }
             R.id.notifications_button -> {
@@ -89,6 +109,7 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(accountIntent);
                 true;
             }
+
             // Handle opening account section
             else -> super.onOptionsItemSelected(item)
         }
