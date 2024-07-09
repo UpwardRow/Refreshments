@@ -19,15 +19,15 @@ class FiltersActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         binding.saveBtn.setOnClickListener{
-            saveDetails()
+            /*saveDetails()*/
         }
     }
 
     // Storing all strings in an ArrayList from the textView
-    fun saveDetails(){
+    /*fun saveDetails(){
         val userText = binding.textView.text.toString()
         binding.textView.setText(userText)
         list += userText
         print(list)
-    }
+    }*/
 }

@@ -61,4 +61,11 @@
     <string name="type_your_last_name">Type Your Last Name</string>
     <string name="search">search\n</string>
     <string name="search_hint">Thai Green Curry</string>
+    <string name="Save">Save</string>
+    <string name="alterProfilePicture">Change profile picture</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="bio">Bio</string>
+    <string name="save_account_details">Save</string>
 </resources>

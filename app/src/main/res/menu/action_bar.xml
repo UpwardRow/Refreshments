@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/ic_search"
         android:icon="@drawable/ic_search"
@@ -17,7 +18,7 @@
         android:layout_marginBottom="120dp"
         android:icon="@drawable/account_icon"
         android:text="@string/account"
-        android:textColor="#1B5E20"
+        android:textColor="#000000"
         android:title="@string/account"
         app:showAsAction="collapseActionView|ifRoom" />
 </menu>

@@ -105,12 +105,17 @@ dependencies {
     implementation("com.google.firebase:firebase-database")
     implementation 'com.google.firebase:firebase-auth:22.3.1'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:21.0.0'
 
     // Amplify plugins
     implementation 'com.amplifyframework:core:2.11.1'
     implementation 'com.amplifyframework:aws-api:2.0.0'
     implementation 'com.amplifyframework:aws-datastore:2.0.0'
     implementation 'com.amplifyframework:aws-auth-cognito:2.11.1'
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
 
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'

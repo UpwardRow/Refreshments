@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Refreshments" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Refreshments"
+        parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
@@ -8,9 +9,10 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent</item>
         <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">#ffffff</item>
+        <item name="colorOnSecondary">@color/secondary_text</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="titleTextColor">@android:color/black</item>
         <!-- Customize your theme here. -->
     </style>
 
