@@ -57,8 +57,7 @@
     <string name="retype_your_password"> Retype Your Password</string>
     <string name="already_registered_sign_in">Already Registered? Sign in!</string>
     <string name="sign_up">Sign Up</string>
-    <string name="type_your_first_name">Type Your First Name</string>
-    <string name="type_your_last_name">Type Your Last Name</string>
+    <string name="type_your_username">Create Your Unique Username</string>
     <string name="search">search\n</string>
     <string name="search_hint">Thai Green Curry</string>
     <string name="Save">Save</string>

@@ -30,6 +30,7 @@ import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlin.math.log
 
 
 class AccountActivity : AppCompatActivity() {
@@ -103,7 +104,7 @@ class AccountActivity : AppCompatActivity() {
 
         //Firebase setup parameters
         firebaseAuth = FirebaseAuth.getInstance()
-        val uid = firebaseAuth.currentUser?.uid;
+        val uid = firebaseAuth.currentUser?.uid
 
         if (firebaseAuth.currentUser != null) {
             super.onCreate(savedInstanceState)
@@ -165,6 +166,10 @@ class AccountActivity : AppCompatActivity() {
 
             binding.saveAccountUpdate.setOnClickListener {
                 updateAccountDetails(uid, firstNameField, lastNameField, usernameField, bioField)
+            }
+
+            binding.logOutButton.setOnClickListener{
+                logout()
             }
         }
     }
@@ -238,7 +243,7 @@ class AccountActivity : AppCompatActivity() {
 
                         override fun onCancelled(error: DatabaseError) {
                             Log.e(
-                                TAG, "Could not populate firstNameField with user first name"
+                                TAG, "Could not populate bioField with user bio"
                             )
                         }
                     })
@@ -339,6 +344,16 @@ class AccountActivity : AppCompatActivity() {
         return uri.path?.lastIndexOf('/')?.let { uri.path?.substring(it) }
     }
 
+    private fun logout(){
+        FirebaseAuth.getInstance().signOut()
+
+        // This starts the login activity with flags to clear the activity stack
+        val intent = Intent(this, SignInActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menu?.clear()
         return true
@@ -387,7 +402,8 @@ class AccountActivity : AppCompatActivity() {
                             databaseReference.child("Usernames").updateChildren(updates)
                                 .addOnCompleteListener { task ->
                                     if (task.isSuccessful) {
-                                        println("Updated key from $key to " + firebaseAuth.currentUser?.displayName.toString())
+                                        println("Updated key from $key to " +
+                                                firebaseAuth.currentUser?.displayName.toString())
                                     } else {
                                         println("Error updating key: ${task.exception?.message}")
                                     }
@@ -434,7 +450,7 @@ class AccountActivity : AppCompatActivity() {
 
                     } else {
                         task.exception?.let {
-                            println("Error updating document: ${it.message}")
+                            println("Error updating displayName: ${it.message}")
                         }
                     }
                 }.addOnFailureListener { exception ->
