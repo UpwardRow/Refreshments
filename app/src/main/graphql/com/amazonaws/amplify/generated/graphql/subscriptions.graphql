@@ -1,0 +1,133 @@
+# this is an auto generated file. This will be overwritten
+
+subscription OnCreatePreferences(
+  $filter: ModelSubscriptionPreferencesFilterInput
+) {
+  onCreatePreferences(filter: $filter) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+subscription OnUpdatePreferences(
+  $filter: ModelSubscriptionPreferencesFilterInput
+) {
+  onUpdatePreferences(filter: $filter) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+subscription OnDeletePreferences(
+  $filter: ModelSubscriptionPreferencesFilterInput
+) {
+  onDeletePreferences(filter: $filter) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+subscription OnCreateAccounts($filter: ModelSubscriptionAccountsFilterInput) {
+  onCreateAccounts(filter: $filter) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
+
+subscription OnUpdateAccounts($filter: ModelSubscriptionAccountsFilterInput) {
+  onUpdateAccounts(filter: $filter) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
+
+subscription OnDeleteAccounts($filter: ModelSubscriptionAccountsFilterInput) {
+  onDeleteAccounts(filter: $filter) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}

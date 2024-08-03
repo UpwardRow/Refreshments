@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.CA1_Refreshments" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Refreshments"
+        parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
@@ -8,18 +9,24 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent</item>
         <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">#ffffff</item>
+        <item name="colorOnSecondary">@color/secondary_text</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="titleTextColor">@android:color/black</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.CA1_Refreshments.NoActionBar">
+    <!--<style name="Theme.Refreshments">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>-->
+
+    <style name="Theme.Refreshments.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Refreshments.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Refreshments" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
-    <style name="Theme.CA1_Refreshments.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.CA1_Refreshments.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

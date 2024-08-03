@@ -8,7 +8,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(val context: Context, val recipeList: Result): RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(val context: Context, val recipeList: Result):
+    RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+
+    companion object {
+
+        // This function may be used later to access the filters of results entered for account
+        /*fun getFilter(): Any {
+
+        }*/
+    }
+
     class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
         var recipeTitle: TextView
         var link: TextView

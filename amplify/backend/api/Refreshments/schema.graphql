@@ -1,0 +1,16 @@
+type FoodExclusion @model @auth(rules: [{allow: owner, operations: [create, delete, update]}]) {
+  id: ID!
+  diets: [String]
+  ingredients: [String]
+  accountId: ID!
+  account: Account @hasOne(fields: ["accountId", "accountFirstName", "accountLastName"])
+  accountFirstName: String
+  accountLastName: String
+}
+
+type Account @model @auth(rules: [{allow: owner, operations: [create, delete, update]}]) {
+  id: ID! @primaryKey(sortKeyFields:["firstName", "lastName"])
+  firstName: String!
+  lastName: String!
+  email: AWSEmail!
+}

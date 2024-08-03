@@ -1,0 +1,175 @@
+# this is an auto generated file. This will be overwritten
+
+query GetPreferences($id: ID!) {
+  getPreferences(id: $id) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+query ListPreferences(
+  $filter: ModelPreferencesFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listPreferences(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+
+query SyncPreferences(
+  $filter: ModelPreferencesFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncPreferences(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+
+query GetAccounts($id: ID!) {
+  getAccounts(id: $id) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
+
+query ListAccounts(
+  $filter: ModelAccountsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listAccounts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      first_name
+      last_name
+      email
+      dob
+      Preferences {
+        id
+        diets
+        ingredients
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      accountsPreferencesId
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}
+
+query SyncAccounts(
+  $filter: ModelAccountsFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncAccounts(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      first_name
+      last_name
+      email
+      dob
+      Preferences {
+        id
+        diets
+        ingredients
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      accountsPreferencesId
+      __typename
+    }
+    nextToken
+    startedAt
+    __typename
+  }
+}

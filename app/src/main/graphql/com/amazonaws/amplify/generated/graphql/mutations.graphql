@@ -1,0 +1,145 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreatePreferences(
+  $input: CreatePreferencesInput!
+  $condition: ModelPreferencesConditionInput
+) {
+  createPreferences(input: $input, condition: $condition) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+mutation UpdatePreferences(
+  $input: UpdatePreferencesInput!
+  $condition: ModelPreferencesConditionInput
+) {
+  updatePreferences(input: $input, condition: $condition) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+mutation DeletePreferences(
+  $input: DeletePreferencesInput!
+  $condition: ModelPreferencesConditionInput
+) {
+  deletePreferences(input: $input, condition: $condition) {
+    id
+    diets
+    ingredients
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+
+mutation CreateAccounts(
+  $input: CreateAccountsInput!
+  $condition: ModelAccountsConditionInput
+) {
+  createAccounts(input: $input, condition: $condition) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
+
+mutation UpdateAccounts(
+  $input: UpdateAccountsInput!
+  $condition: ModelAccountsConditionInput
+) {
+  updateAccounts(input: $input, condition: $condition) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
+
+mutation DeleteAccounts(
+  $input: DeleteAccountsInput!
+  $condition: ModelAccountsConditionInput
+) {
+  deleteAccounts(input: $input, condition: $condition) {
+    id
+    first_name
+    last_name
+    email
+    dob
+    Preferences {
+      id
+      diets
+      ingredients
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    accountsPreferencesId
+    __typename
+  }
+}
