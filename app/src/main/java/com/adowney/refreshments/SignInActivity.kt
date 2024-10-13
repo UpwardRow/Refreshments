@@ -67,6 +67,7 @@ class SignInActivity : AppCompatActivity() {
             }
         }
     }
+
     // Escorts user to the homepage if already signed in
     override fun onStart() {
         super.onStart()
