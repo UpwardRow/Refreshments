@@ -3,6 +3,7 @@ package com.adowney.refreshments
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 interface APIInterface {
 
@@ -12,6 +13,7 @@ interface APIInterface {
         @Query("app_key") appKey : String,
         @Query("app_id") appId : String,
         @Query("type") type : String,
+        @Query("health") quickFilters: List<String>,
         @Query("q") query : String,
         @Query("excluded") taskIds: List<String>,
     ): Call<Result>

@@ -36,6 +36,10 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
+            android:name=".QuickFiltersActivity"
+            android:exported="true"
+            android:parentActivityName=".HomeActivity"/>
+        <activity
             android:name=".FiltersActivity"
             android:exported="true" />
         <activity
@@ -44,8 +48,9 @@
             android:parentActivityName=".HomeActivity"/>
         <activity
             android:name=".HomeActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true"
-            android:label="Home" />
+            android:label="Refreshments" />
 
         <activity
             android:name=".SplashActivity"

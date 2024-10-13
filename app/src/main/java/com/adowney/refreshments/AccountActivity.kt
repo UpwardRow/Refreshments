@@ -265,9 +265,8 @@ class AccountActivity : AppCompatActivity() {
                 TAG, "firstName text is " + firstNameField.text
             )
 
-            databaseReference.child("Users").child(uid).child("firstName").setValue(
-                firstNameField
-                    .text.toString()
+            databaseReference.child("Users").child(uid).child("firstName")
+                .setValue(firstNameField.text.toString()
             )
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -438,7 +437,8 @@ class AccountActivity : AppCompatActivity() {
                     displayName = usernameField
                 }
 
-                firebaseAuth.currentUser!!.updateProfile(profileUpdates).addOnCompleteListener { task ->
+                firebaseAuth.currentUser!!.updateProfile(profileUpdates).addOnCompleteListener {
+                    task ->
                     if (task.isSuccessful) {
                         Log.e(
                             "Firebase",
