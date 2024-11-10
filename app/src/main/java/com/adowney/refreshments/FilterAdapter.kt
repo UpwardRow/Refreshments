@@ -1,15 +1,20 @@
 package com.adowney.refreshments
 
+import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.google.android.material.imageview.ShapeableImageView
 
 class FilterAdapter(private val filterList: ArrayList<FilterData>,
-                    private val deleteFilterListener: OnFilterDeleteActionListener) :
-    RecyclerView.Adapter<FilterAdapter.ViewHolder>() {
+                    private val deleteFilterListener: OnFilterDeleteActionListener,
+                    private val activityContext: Activity
+    ) : RecyclerView.Adapter<FilterAdapter.ViewHolder>() {
 
     interface OnFilterDeleteActionListener{
         fun onDeleteFilterFromView(filter: String)
@@ -45,6 +50,12 @@ class FilterAdapter(private val filterList: ArrayList<FilterData>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.foodFilter.text = filterList[position].filterName
         holder.bind(position)
+
+        if (LightAndDarkModeUtils.isDarkMode(activityContext)){
+            holder.foodFilter.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary))
+        } else {
+            holder.foodFilter.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary_dark))
+        }
     }
 
     fun removeFilter(index: Int) {

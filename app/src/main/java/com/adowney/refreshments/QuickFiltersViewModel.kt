@@ -45,7 +45,6 @@ class QuickFiltersViewModel : ViewModel() {
                     _dataFlow.value = databaseQuickFilters
                 }
             }catch (e: Exception) {
-                // Handle exceptions, e.g., log errors or show a message
                 Log.e(TAG, "Error fetching filters: ${e.message}")
             }
         }
@@ -62,28 +61,29 @@ class QuickFiltersViewModel : ViewModel() {
 
        databaseReference.child("Users").child(uid).child("QuickFilters")
            .addListenerForSingleValueEvent(object : ValueEventListener {
-           override fun onDataChange(snapshot: DataSnapshot) {
-               Log.d(TAG, "onDataChange: Called")
-               //var testFoundQuickFilters: MutableList<String> = arrayListOf()
                val quickFiltersMap = mutableMapOf<String, Any?>()
-               for (dataSnapshot in snapshot.children) {
-                   Log.d(TAG, "Going through snapshot")
-                   val key = dataSnapshot.key
-                   val value = dataSnapshot.value
-                   Log.d(TAG, "HERE IS KEY: $key")
-                   if (key.toString() in quickFiltersListNames) {
-                       print("Found quick filter at key: $key")
-                       Log.d(TAG, quickFiltersMap.toString())
-                       if (key != null) {
-                           quickFiltersMap[key] = value
-
-                           //testFoundQuickFilters.add(key)
-                       };
+               override fun onDataChange(snapshot: DataSnapshot) {
+                   Log.d(TAG, "onDataChange: Called")
+                   if (snapshot.value != null){
+                       for (dataSnapshot in snapshot.children) {
+                           Log.d(TAG, "Going through snapshot")
+                           val key = dataSnapshot.key
+                           val value = dataSnapshot.value
+                           Log.d(TAG, "HERE IS KEY: $key")
+                           if (key.toString() in quickFiltersListNames) {
+                               print("Found quick filter at key: $key")
+                               Log.d(TAG, quickFiltersMap.toString())
+                               if (key != null) {
+                                   quickFiltersMap[key] = value
+                               }
+                           }
+                           deferred.complete(quickFiltersMap)
+                       }
+                   } else {
+                       quickFiltersMap[""] = ""
+                       deferred.complete(quickFiltersMap)
                    }
-                   //deferred.complete(testFoundQuickFilters)
-                   deferred.complete(quickFiltersMap)
                }
-           }
 
                override fun onCancelled(error: DatabaseError) {
                    deferred.completeExceptionally(Exception(error.message))

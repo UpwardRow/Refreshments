@@ -10,7 +10,7 @@
         android:id="@+id/profilePicture"
         android:layout_width="149dp"
         android:layout_height="137dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="23dp"
         android:contentDescription="@string/the_user_s_profile_picture"
         android:src="@mipmap/ic_profile_pic"
@@ -24,7 +24,7 @@
         android:layout_width="140dp"
         android:layout_height="40dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:text="@string/alterProfilePicture"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
@@ -77,10 +77,10 @@
 
     <Button
         android:id="@+id/saveAccountUpdate"
-        android:layout_width="105dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/accent"
         android:text="@string/save_account_details"
         android:textColor="@color/secondary_text"
@@ -89,10 +89,10 @@
 
     <Button
         android:id="@+id/logOutButton"
-        android:layout_width="105dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="44dp"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/accent"
         android:text="@string/log_out"
         android:textColor="@color/secondary_text"

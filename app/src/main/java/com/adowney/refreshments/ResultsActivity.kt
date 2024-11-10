@@ -1,5 +1,6 @@
 package com.adowney.refreshments
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adowney.refreshments.HomeActivity.Companion.USER_QUERY
 import com.adowney.refreshments.databinding.ActivityResultsBinding
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -43,15 +45,21 @@ class ResultsActivity : AppCompatActivity() {
     private lateinit var databaseQuickFilters: MutableMap<String, Any?>
     private lateinit var quickFiltersViewModel: QuickFiltersViewModel
     private lateinit var recyclerViewRecipes: RecyclerView
+    private lateinit var activityContext: Activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         quickFiltersViewModel = ViewModelProvider(this)[QuickFiltersViewModel::class.java]
         databaseQuickFilters = mutableMapOf()
 
         setContentView(R.layout.activity_results)
 
+        // Determining appearance for dark or light mode for notification bar
+        LightAndDarkModeUtils.setStatusBarIconColour(this)
+
         context = this
+        activityContext = this
 
         firebaseAuth = FirebaseAuth.getInstance()
         uid = firebaseAuth.currentUser?.uid.toString()
@@ -93,20 +101,50 @@ class ResultsActivity : AppCompatActivity() {
 
         val databaseQuickFiltersApiLabels = databaseQuickFilters.values.toList()
 
-        val databaseQuickFiltersStrings = databaseQuickFiltersApiLabels.mapNotNull { it?.toString() }
+        val databaseQuickFiltersStrings = databaseQuickFiltersApiLabels.mapNotNull{ it?.toString() }
 
         Log.d(TAG, databaseQuickFiltersStrings.toString())
 
-        val retrofitData = retrofitBuilder.getEdamamData(
-            APP_KEY,
-            APP_ID,
-            "public",
-            databaseQuickFiltersStrings,
-            USER_QUERY,
-            HomeActivity.userFiltersList)
+        val stringBuilder = StringBuilder()
+
+        for (health in databaseQuickFiltersStrings){
+            stringBuilder.append("&health=").append(health)
+        }
+
+        val retrofitData : Call<Result>
+
+        val healthParam = mutableMapOf<String, String>()
+
+        // If a user does not put a quick filter, the parameter will not be added to the url
+        if (HomeActivity.userFiltersList.isNotEmpty() &&
+            databaseQuickFiltersStrings.toString() != "[]") {
+            retrofitData = retrofitBuilder.getEdamamDataWithAllFilterTypes(
+                APP_KEY,
+                APP_ID,
+                "public",
+                databaseQuickFiltersStrings,
+                USER_QUERY,
+                HomeActivity.userFiltersList
+            )
+        } else if (databaseQuickFiltersStrings.toString() == "[]"){
+            retrofitData = retrofitBuilder.getEdamamDataWithUserFilters(
+                APP_KEY,
+                APP_ID,
+                "public",
+                USER_QUERY,
+                HomeActivity.userFiltersList)
+        } else {
+            retrofitData = retrofitBuilder.getEdamamDataWithQuickFilters(
+                APP_KEY,
+                APP_ID,
+                "public",
+                databaseQuickFiltersStrings,
+                USER_QUERY)
+        }
 
         Log.d(TAG, "User filter data is " + HomeActivity.userFiltersList)
-        Log.d(TAG, "retrofitData is $databaseQuickFilters")
+        Log.d(TAG, "retrofitData is $databaseQuickFiltersStrings")
+        Log.d(TAG, "User query is $USER_QUERY")
 
         retrofitData.enqueue(object : Callback<Result?> {
             override fun onResponse(
@@ -115,7 +153,7 @@ class ResultsActivity : AppCompatActivity() {
             ) {
                 val responseBodyAPIData = response.body()!!
 
-                searchAdapter = SearchAdapter(context, responseBodyAPIData)
+                searchAdapter = SearchAdapter(context, responseBodyAPIData, activityContext)
                 searchAdapter.notifyDataSetChanged()
                 recyclerViewRecipes.adapter = searchAdapter
             }

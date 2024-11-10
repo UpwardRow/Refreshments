@@ -9,17 +9,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adowney.refreshments.databinding.ActivityQuickFiltersBinding
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class QuickFiltersActivity: AppCompatActivity(),
     QuickFilterAdapter.OnQuickFilterCheckedActionListener {
@@ -41,6 +37,7 @@ class QuickFiltersActivity: AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         quickFiltersViewModel = ViewModelProvider(this)[QuickFiltersViewModel::class.java]
         databaseQuickFilters = mutableMapOf()
 
@@ -55,6 +52,20 @@ class QuickFiltersActivity: AppCompatActivity(),
 
         binding = ActivityQuickFiltersBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Determining appearance for dark or light mode for notification bar
+        LightAndDarkModeUtils.setStatusBarIconColour(this)
+
+        // This is setting up the actionbar
+        if (supportActionBar != null) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setHomeAsUpIndicator(
+                R.drawable.action_bar_arrow_back
+            )
+        } else {
+            throw NullPointerException("Action bar is null");
+        }
 
         val recyclerviewQuickFilters = binding.recyclerviewQuickFilters
         recyclerviewQuickFilters .setHasFixedSize(true)
@@ -125,8 +136,8 @@ class QuickFiltersActivity: AppCompatActivity(),
         val databaseQuickFiltersNames = databaseQuickFilters.keys.toList()
         val databaseQuickFiltersStrings = databaseQuickFiltersNames.map { it }
 
-        recyclerView.adapter = QuickFilterAdapter(databaseQuickFiltersStrings, context)
-        val quickFilterAdapter = QuickFilterAdapter(databaseQuickFiltersStrings, context)
+        recyclerView.adapter = QuickFilterAdapter(databaseQuickFiltersStrings, context, this)
+        val quickFilterAdapter = QuickFilterAdapter(databaseQuickFiltersStrings, context, this)
         Log.d("Item count quick filter", quickFilterAdapter.itemCount.toString())
     }
 
