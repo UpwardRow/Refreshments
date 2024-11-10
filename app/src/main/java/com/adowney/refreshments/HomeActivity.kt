@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.adowney.refreshments.databinding.FilterCellsBinding
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -51,6 +52,9 @@ class HomeActivity : AppCompatActivity(), FilterAdapter.OnFilterDeleteActionList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        // Determining appearance for dark or light mode for notification bar
+        LightAndDarkModeUtils.setStatusBarIconColour(this)
+
         firebaseAuth = FirebaseAuth.getInstance()
         uid = firebaseAuth.currentUser?.uid
 
@@ -58,7 +62,7 @@ class HomeActivity : AppCompatActivity(), FilterAdapter.OnFilterDeleteActionList
 
         /*
             When the phone opens with the splash screen, it depends on the first frame of the root
-            activity for the splash to end. For Emanate this is near instant. To bring more
+            activity for the splash to end. For Refreshments this is near instant. To bring more
             attention to the splash screen, I added 3 seconds on top of the first frame to load.
             This may be seen to worsen the performance but is better quality of life in my opinion.
 
@@ -121,13 +125,6 @@ class HomeActivity : AppCompatActivity(), FilterAdapter.OnFilterDeleteActionList
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
 
                 val enteredFilter = binding.filterAddBar.text
-
-                // This happens when 'Enter' is pressed
-                Toast.makeText(this,
-                    "Enter key pressed! Here is the filter $enteredFilter",
-                    Toast
-                    .LENGTH_SHORT)
-                    .show()
 
                 addFilter(enteredFilter.toString(), uid, recyclerViewFilters, this)
 
@@ -248,14 +245,8 @@ class HomeActivity : AppCompatActivity(), FilterAdapter.OnFilterDeleteActionList
                                 val filterData = FilterData(snapshot.key.toString())
                                 filterDataList.add(filterData)
                             }
-                            /*userFilterFromDb = snapshot.key
-                            filterDataList.add(filter)*/
-                            Toast.makeText(that,
-                                "Enter key pressed! Here are the filter(s) $foodList",
-                                Toast.LENGTH_SHORT
-                            ).show()
                             if (isGettingFiltersView){
-                                recyclerViewFilters.adapter = FilterAdapter(filterDataList, context)
+                                recyclerViewFilters.adapter = FilterAdapter(filterDataList, context, context)
                             }
                         }
 

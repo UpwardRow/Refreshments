@@ -1,5 +1,6 @@
 package com.adowney.refreshments
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -8,17 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 
-class SearchAdapter(val context: Context, val recipeList: Result):
+class SearchAdapter(val context: Context, val recipeList: Result, private val activityContext: Activity):
     RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
-
-    companion object {
-        // This function may be used later to access the filters of results entered for account
-        /*fun getFilter(): Any {
-
-        }*/
-    }
 
     class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
         var recipeTitle: TextView = itemView.findViewById(R.id.recipe_title)
@@ -55,8 +51,12 @@ class SearchAdapter(val context: Context, val recipeList: Result):
         holder.link.text = recipeList.hits[position].recipe.url
         val linkItem = recipeList.hits[position]
 
-       /* fun linkTap(item: HitsData){*/
-            //link.text = item.recipe.url
+        if (LightAndDarkModeUtils.isDarkMode(activityContext)){
+            holder.recipeTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary))
+        } else {
+            holder.recipeTitle.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary_dark))
+        }
+
         holder.itemView.setOnClickListener{
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkItem.recipe.url))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -15,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NavUtils
 import com.adowney.refreshments.databinding.ActivityAccountBinding
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -30,7 +31,6 @@ import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.math.log
 
 
 class AccountActivity : AppCompatActivity() {
@@ -112,6 +112,9 @@ class AccountActivity : AppCompatActivity() {
             binding = ActivityAccountBinding.inflate(layoutInflater)
             setContentView(binding.root)
 
+            // Determining appearance for dark or light mode for notification bar
+            LightAndDarkModeUtils.setStatusBarIconColour(this)
+
             val firstNameField = binding.firstName
             val lastNameField = binding.lastName
             val usernameField = binding.username
@@ -129,8 +132,6 @@ class AccountActivity : AppCompatActivity() {
                 supportActionBar?.setHomeAsUpIndicator(
                     R.drawable.action_bar_arrow_back
                 )
-                supportActionBar?.title = "Account"
-                supportActionBar
             } else {
                 throw NullPointerException("Action bar is null");
             }
@@ -275,7 +276,7 @@ class AccountActivity : AppCompatActivity() {
                             "firstName text is set to " + firstNameField.text + " in database"
                         )
                     } else {
-                        Log.e(TAG, "firstName text could not be updated")
+                        Log.e(TAG, "firstName text could not be updated ")
                     }
                 }
 
@@ -369,58 +370,124 @@ class AccountActivity : AppCompatActivity() {
         }
     }
 
-    private fun overwriteUsername(uid: String) {
-        databaseReference.child("Usernames")
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+   /* private fun testOverwriteUsername(uid: String){
+        databaseReference.child("Usernames").addListenerForSingleValueEvent(object : ValueEventListener {
 
-                    var found = false
+            override fun onDataChange(snapshot: DataSnapshot) {
 
-                    databaseReference.child("Users")
-                        .child(uid)
-                        .child("displayName")
-                        .setValue(firebaseAuth.currentUser?.displayName)
+                Log.e("Firebase", "DataSnapshot: ${snapshot.value}")
+                if (!snapshot.exists()) {
+                    println("No data found in Usernames")
+                    return
+                }
 
-                    for (dataSnapshot in snapshot.children) {
-                        val value = dataSnapshot.getValue(String::class.java)
-                        if (value == uid) {
+                var found = false
 
-                            // Found a match
-                            val key = dataSnapshot.key
-                            println("Found match at key: $key")
+                databaseReference.child("Users")
+                    .child(uid)
+                    .child("displayName")
+                    .setValue(firebaseAuth.currentUser?.displayName)
 
-                            // Get the existing data
-                            val data = dataSnapshot.value
+                for (dataSnapshot in snapshot.children) {
+                    val value = dataSnapshot.getValue(String::class.java)
+                    if (value == uid) {
 
-                            // Create a map to hold the updates
-                            val updates = mutableMapOf<String, Any?>()
-                            updates[firebaseAuth.currentUser?.displayName.toString()] = data
-                            updates[key!!] = null // Mark the old key for deletion
+                        // Found a match
+                        val key = dataSnapshot.key
+                        println("Found match at key: $key")
 
-                            // Perform the update
-                            databaseReference.child("Usernames").updateChildren(updates)
-                                .addOnCompleteListener { task ->
-                                    if (task.isSuccessful) {
-                                        println("Updated key from $key to " +
-                                                firebaseAuth.currentUser?.displayName.toString())
-                                    } else {
-                                        println("Error updating key: ${task.exception?.message}")
-                                    }
+                        // Get the existing data
+                        val data = dataSnapshot.value
+
+                        // Create a map to hold the updates
+                        val updates = mutableMapOf<String, Any?>()
+                        updates[firebaseAuth.currentUser?.displayName.toString()] = data
+                        updates[key!!] = null // Mark the old key for deletion
+
+                        // Perform the update
+                        databaseReference.child("Usernames").updateChildren(updates)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    println(
+                                        "Updated key from $key to " +
+                                                firebaseAuth.currentUser?.displayName.toString()
+                                    )
+                                } else {
+                                    println("Error updating key: ${task.exception?.message}")
                                 }
+                            }
 
-                            found = true;
-                            break
-                        }
-                    }
-                    if (!found) {
-                        println("No match found")
+                        found = true;
+                        break
                     }
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    println("Error querying database: ${error.message}")
+                if (!found) {
+                    println("No match found")
                 }
-            })
+            }
+        })
+    }*/
+
+    private fun overwriteUsername(uid: String) {
+            databaseReference.child("Usernames").addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                Log.e("Firebase", "DataSnapshot: ${snapshot.value}")
+                if (!snapshot.exists()) {
+                    println("No data found in Usernames")
+                    return
+                }
+
+                var found = false
+
+                databaseReference.child("Users")
+                    .child(uid)
+                    .child("displayName")
+                    .setValue(firebaseAuth.currentUser?.displayName)
+
+                for (dataSnapshot in snapshot.children) {
+                    val value = dataSnapshot.getValue(String::class.java)
+                    if (value == uid) {
+
+                        // Found a match
+                        val key = dataSnapshot.key
+                        println("Found match at key: $key")
+
+                        // Get the existing data
+                        val data = dataSnapshot.value
+
+                        // Create a map to hold the updates
+                        val updates = mutableMapOf<String, Any?>()
+                        updates[firebaseAuth.currentUser?.displayName.toString()] = data
+                        updates[key!!] = null // Mark the old key for deletion
+
+                        // Perform the update
+                        databaseReference.child("Usernames").updateChildren(updates)
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    println(
+                                        "Updated key from $key to " +
+                                                firebaseAuth.currentUser?.displayName.toString()
+                                    )
+                                } else {
+                                    println("Error updating key: ${task.exception?.message}")
+                                }
+                            }
+
+                        found = true;
+                        break
+                    }
+                }
+                if (!found) {
+                    println("No match found")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                println("Error querying database: ${error.message}")
+            }
+        })
     }
 
     private fun updateUsername(usernameField: String, uid: String) {
@@ -446,6 +513,7 @@ class AccountActivity : AppCompatActivity() {
                                     firebaseAuth.currentUser?.displayName
                         )
 
+                        //testOverwriteUsername(uid)
                         overwriteUsername(uid)
 
                     } else {

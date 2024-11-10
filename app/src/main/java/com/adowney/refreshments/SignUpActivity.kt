@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.adowney.refreshments.databinding.ActivitySignUpBinding
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.userProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
@@ -30,6 +31,9 @@ class SignUpActivity : AppCompatActivity() {
 
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Determining appearance for dark or light mode for notification bar
+        LightAndDarkModeUtils.setStatusBarIconColour(this)
 
         firebaseAuth = FirebaseAuth.getInstance()
 

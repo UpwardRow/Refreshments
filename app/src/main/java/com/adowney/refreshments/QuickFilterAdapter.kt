@@ -1,17 +1,24 @@
 package com.adowney.refreshments
 
+import android.app.Activity
+import android.content.Context
+import android.content.res.Configuration
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsetsController
 import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.adowney.refreshments.utilities.LightAndDarkModeUtils
 
 class QuickFilterAdapter(
     private val foundQuickFilters: List<String>,
     private val checkedQuickFilterListener: OnQuickFilterCheckedActionListener,
+    private val activityContext: Activity
 ) : RecyclerView.Adapter<QuickFilterAdapter.ViewHolder>() {
 
     private val quickFilters = PredefinedQuickFilters.getAllQuickFilters()
@@ -49,6 +56,12 @@ class QuickFilterAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.quickFilterText.text = quickFilters[position].quickFilterName
+
+        if (LightAndDarkModeUtils.isDarkMode(activityContext)){
+            holder.quickFilterText.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary))
+        } else {
+            holder.quickFilterText.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primary_dark))
+        }
 
         if(foundQuickFilters.isNotEmpty()){
             holder.quickFilter.isChecked = foundQuickFilters.contains(holder.quickFilterText.text)
