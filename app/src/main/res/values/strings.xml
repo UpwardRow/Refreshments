@@ -1,20 +1,11 @@
 <resources>
     <string name="app_name">Refreshments</string>
-    <string name="salad_concotion">Salad Concoction</string>
     <string name="go_to_second_activity">Go to second activity</string>
     <string name="account">Account</string>
     <string name="filters">Filter</string>
     <string name="home">Home</string>
-    <string name="roast_seabass_and_vegetable_tray">Roast Seabass and Vegetable Tray</string>
-    <string name="chocolate_crunch_and_raspberry_pots">Chocolate Crunch and Raspberry Pots</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="a_picture_of_a_salad">A picture of a salad</string>
-    <string name="a_picture_of_a_raspberry_pot">A picture of a raspberry pot</string>
-    <string name="baked_seabass_with_lemon_and_caper_dressing">Baked Seabass with Lemon and Caper Dressing</string>
-    <string name="a_picture_of_a_lemon_seabass_meal">A picture of a lemon seabass meal</string>
-    <string name="a_picture_of_a_vegetable_tray_with_seabass">A picture of a vegetable tray with seabass</string>
     <string name="refreshments_logo">Refreshments_logo</string>
     <string name="go">Go</string>
     <string name="filters_button">Filters</string>
@@ -25,14 +16,11 @@
     <string name="location">Location</string>
     <string name="allow_notifications">Allow Notifications</string>
     <string name="imperial_units">Imperial Units</string>
-    <string name="vegetarian_mode">Vegetarian Mode</string>
+    <string name="vegetarian_mode">Vegetarian</string>
     <string name="log_out">Log out</string>
     <string name="the_user_s_profile_picture">The user\'s profile picture</string>
-    <string name="vegan_mode">Vegan Mode</string>
+    <string name="vegan_mode">Vegan</string>
     <string name="add_filter">Add filter</string>
-    <string name="a_picture_of_almonds_and_feta">a_picture_of_almonds_and_feta</string>
-    <string name="spiced_quinoa_with_almonds_and_feta_cheese">spiced_quinoa_with_almonds_and_feta_cheese</string>
-    <string name="spiced_quinoa_with_almonds_and_feta_cheese_2">Spiced Quinoa With Almonds and Feta Cheese</string>
     <string name="imperial_measurements">Imperial Measurements</string>
     <string name="save">Save</string>
     <string name="link">Link</string>
@@ -52,49 +40,25 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <!--    <string name="lorem_ipsum">-->
-    <!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris-->
-    <!--        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus-->
-    <!--        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad-->
-    <!--        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend-->
-    <!--        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,-->
-    <!--        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n-->
-    <!--        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus-->
-    <!--        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed-->
-    <!--        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada-->
-    <!--        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,-->
-    <!--        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor-->
-    <!--        bibendum, vel congue leo egestas.\n\n-->
-    <!--        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit-->
-    <!--        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,-->
-    <!--        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer-->
-    <!--        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at-->
-    <!--        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,-->
-    <!--        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque-->
-    <!--        est.\n\n-->
-    <!--        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.-->
-    <!--        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui-->
-    <!--        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In-->
-    <!--        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,-->
-    <!--        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra-->
-    <!--        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a-->
-    <!--        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus-->
-    <!--        convallis.\n\n-->
-    <!--        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et-->
-    <!--        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa-->
-    <!--        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,-->
-    <!--        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper-->
-    <!--        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus-->
-    <!--        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus-->
-    <!--        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.-->
-    <!--    </string>-->
     <string name="type_your_email">Type Your Email</string>
     <string name="type_your_password">Type Your Password</string>
     <string name="not_registered_yet_sign_up">Not Registered Yet? Sign Up!</string>
     <string name="retype_your_password"> Retype Your Password</string>
     <string name="already_registered_sign_in">Already Registered? Sign in!</string>
     <string name="sign_up">Sign Up</string>
-    <string name="type_your_first_name">Type Your First Name</string>
-    <string name="type_your_last_name">Type Your Last Name</string>
+    <string name="type_your_username">Create Your Unique Username</string>
+    <string name="search">search\n</string>
+    <string name="search_hint">Thai Green Curry</string>
+    <string name="Save">Save</string>
+    <string name="alterProfilePicture">Change profile picture</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username</string>
+    <string name="bio">Bio</string>
+    <string name="save_account_details">Save</string>
+    <string name="filter">Food Filter</string>
+    <string name="enter_filter">Enter Filter</string>
+    <string name="quick_filters_button_title">Quick Filters</string>
+    <string name="quick_filter">Quick Filter</string>
+    <string name="quick_filter_text">Quick Filter</string>
 </resources>

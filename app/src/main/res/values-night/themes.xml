@@ -2,19 +2,44 @@
     <!-- Base application theme. -->
     <style name="Theme.Refreshments" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/primary_dark</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@color/primary_text</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent</item>
         <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">#000000</item>
+        <item name="colorOnSecondary">@color/secondary_text</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >#121212</item>
+        <item name="android:navigationBarColor" >#121212</item>
+        <item name="titleTextColor">@color/primary</item>
     </style>
+
+ <!--   <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        &lt;!&ndash; Primary brand color (figure beige) &ndash;&gt;
+        <item name="colorPrimary">#D4C4B5</item>
+
+        &lt;!&ndash; Variant of the primary color for darker accents &ndash;&gt;
+        <item name="colorPrimaryVariant">#FFB25E</item>
+
+        &lt;!&ndash; Accent color (Yellow) &ndash;&gt;
+        <item name="colorAccent">#FFD700</item>
+
+        &lt;!&ndash; Background color (Dark) &ndash;&gt;
+        <item name="android:colorBackground">#1C1C1E</item>
+
+        &lt;!&ndash; Surface color for UI elements that appear on top of the background &ndash;&gt;
+        <item name="colorSurface">#020202</item>
+
+        &lt;!&ndash; Text and icon color on primary elements (white or beige) &ndash;&gt;
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        &lt;!&ndash; Text and icon color on the surface elements &ndash;&gt;
+        <item name="colorOnSurface">#FF5E79</item>
+    </style>-->
     <!-- Base application theme. -->
-    <style name="Base.Theme.Refreshments.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-    </style>
+    <!--<style name="Base.Theme.Refreshments.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        &lt;!&ndash; Customize your dark theme here. &ndash;&gt;
+        &lt;!&ndash; <item name="colorPrimary">@color/my_dark_primary</item> &ndash;&gt;
+    </style>-->
 </resources>

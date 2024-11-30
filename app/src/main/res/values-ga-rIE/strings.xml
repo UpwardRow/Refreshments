@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Refreshments</string>
-    <string name="salad_concotion">Sailéad  Éagsúlacht</string>
     <string name="go_to_second_activity">Téigh go dtí an dara gníomhaíocht</string>
     <string name="account">Cuntas</string>
     <string name="home">" Baile"</string>
     <string name="filters">" Scagairí"</string>
-    <string name="roast_seabass_and_vegetable_tray">Dord Farraige Rósta agus Tráidire Glasraí</string>
-    <string name="chocolate_crunch_and_raspberry_pots">Géarchor Seacláide agus Potaí Sú craobh</string>
     <string name="title_activity_scrolling">" ScrollaighGníomhaíocht"</string>
     <string name="action_settings">" Socruithe"</string>
-    <string name="a_picture_of_a_salad">Pictiúr de sailéad</string>
-    <string name="a_picture_of_a_raspberry_pot">Pictiúr de phota sú craobh</string>
-    <string name="baked_seabass_with_lemon_and_caper_dressing">" Seabass Bácáilte le Gléasadh Lemon agus Caper"</string>
-    <string name="a_picture_of_a_lemon_seabass_meal">" Pictiúr de bhéile grinneall líomóide"</string>
-    <string name="a_picture_of_a_vegetable_tray_with_seabass">" ▲ Pictiúr de thráidire glasraí le grinneall na farraige"</string>
     <string name="refreshments_logo">" Sólaistí_logo"</string>
     <string name="go">" Téigh"</string>
     <string name="filters_button">" Scagairí"</string>
@@ -30,9 +22,6 @@
     <string name="the_user_s_profile_picture">" Pictiúr próifíle an úsáideora"</string>
     <string name="vegan_mode">" Mód Vegan"</string>
     <string name="add_filter">" ▲ Cuir scagaire leis"</string>
-    <string name="a_picture_of_almonds_and_feta">" pictiúr_de_almóinní_agus_feta"</string>
-    <string name="spiced_quinoa_with_almonds_and_feta_cheese">quinoa_spíosrach_le_almóinní_agus_cáis_feta</string>
-    <string name="spiced_quinoa_with_almonds_and_feta_cheese_2">" Quinoa spíosrach le almóinní agus cáis Feta"</string>
     <string name="imperial_measurements">" Tomhais Impiriúla"</string>
     <string name="save">sábháil</string>
 </resources>

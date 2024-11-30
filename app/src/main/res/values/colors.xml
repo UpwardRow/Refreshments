@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#FF5722</color>
-    <color name="primary_dark">#5b7c99</color>
+    <color name="primary">#FFFFFF</color>
+    <color name="primary_dark">#020202</color>
     <color name="primary_light">#cfe8ef</color>
-    <color name="accent">#40864A</color>
-    <color name="primary_text">#212121</color>
-    <color name="secondary_text">#fdff94</color>
-    <color name="icons">#FFFFFF</color>
-    <color name="divider">#757575</color>
+    <color name="accent">#FF5E79</color>
+    <color name="primary_text">#FFD700</color>
+    <color name="secondary_text">#D4C4B5</color>
+    <color name="icons">#8b9191</color>
+    <color name="divider">#020202</color>
+
+   <!-- <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        &lt;!&ndash; Primary brand color (figure beige) &ndash;&gt;
+        <item name="colorPrimary">#D4C4B5</item>
+
+        &lt;!&ndash; Variant of the primary color for darker accents &ndash;&gt;
+        <item name="colorPrimaryVariant">#FFB25E</item>
+
+        &lt;!&ndash; Accent color (Yellow) &ndash;&gt;
+        <item name="colorAccent">#FFD700</item>
+
+        &lt;!&ndash; Background color (Dark) &ndash;&gt;
+        <item name="android:colorBackground">#1C1C1E</item>
+
+        &lt;!&ndash; Surface color for UI elements that appear on top of the background &ndash;&gt;
+        <item name="colorSurface">#020202</item>
+
+        &lt;!&ndash; Text and icon color on primary elements (white or beige) &ndash;&gt;
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        &lt;!&ndash; Text and icon color on the surface elements &ndash;&gt;
+        <item name="colorOnSurface">#FF5E79</item>
+    </style>-->
 </resources>
