@@ -1,6 +1,6 @@
 # Introduction
 
-**Cook, your way**
+**Refresh your recipes!**
 
 The Refreshments mobile application is an application which allows the user to create specific dietary needs and proposes recipes without said ingredients. Many applications on the Play Store allow for vegetarian, vegan, and gluten-free preferences, but are not so accommodating for the rare dietary restrictions. Or even picky eaters like children. I came up with the idea in college but what I designed for the assignment was extremely barebones. No database, a vastly different more basic UI, and an API was connected. You will see below that this was quickly removed after I revisited the app after college.
 
