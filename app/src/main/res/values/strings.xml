@@ -61,4 +61,5 @@
     <string name="quick_filters_button_title">Quick Filters</string>
     <string name="quick_filter">Quick Filter</string>
     <string name="quick_filter_text">Quick Filter</string>
+    <string name="sign_in">Sign In</string>
 </resources>

@@ -370,66 +370,8 @@ class AccountActivity : AppCompatActivity() {
         }
     }
 
-   /* private fun testOverwriteUsername(uid: String){
-        databaseReference.child("Usernames").addListenerForSingleValueEvent(object : ValueEventListener {
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                Log.e("Firebase", "DataSnapshot: ${snapshot.value}")
-                if (!snapshot.exists()) {
-                    println("No data found in Usernames")
-                    return
-                }
-
-                var found = false
-
-                databaseReference.child("Users")
-                    .child(uid)
-                    .child("displayName")
-                    .setValue(firebaseAuth.currentUser?.displayName)
-
-                for (dataSnapshot in snapshot.children) {
-                    val value = dataSnapshot.getValue(String::class.java)
-                    if (value == uid) {
-
-                        // Found a match
-                        val key = dataSnapshot.key
-                        println("Found match at key: $key")
-
-                        // Get the existing data
-                        val data = dataSnapshot.value
-
-                        // Create a map to hold the updates
-                        val updates = mutableMapOf<String, Any?>()
-                        updates[firebaseAuth.currentUser?.displayName.toString()] = data
-                        updates[key!!] = null // Mark the old key for deletion
-
-                        // Perform the update
-                        databaseReference.child("Usernames").updateChildren(updates)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    println(
-                                        "Updated key from $key to " +
-                                                firebaseAuth.currentUser?.displayName.toString()
-                                    )
-                                } else {
-                                    println("Error updating key: ${task.exception?.message}")
-                                }
-                            }
-
-                        found = true;
-                        break
-                    }
-                }
-                if (!found) {
-                    println("No match found")
-                }
-            }
-        })
-    }*/
-
     private fun overwriteUsername(uid: String) {
-            databaseReference.child("Usernames").addListenerForSingleValueEvent(object : ValueEventListener {
+        databaseReference.child("Usernames").addListenerForSingleValueEvent(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
 
