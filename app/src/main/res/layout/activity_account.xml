@@ -8,14 +8,14 @@
 
     <ImageView
         android:id="@+id/profilePicture"
-        android:layout_width="149dp"
-        android:layout_height="137dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="245dp"
+        android:layout_height="209dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="23dp"
         android:contentDescription="@string/the_user_s_profile_picture"
         android:src="@mipmap/ic_profile_pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:hint="@string/first_name"
         app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/uploadProfilePicture" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -47,6 +48,7 @@
         android:layout_marginTop="20dp"
         android:hint="@string/last_name"
         app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -59,6 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <EditText
@@ -73,6 +76,7 @@
         android:gravity="top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username"
+        android:textSize="20sp"
         tools:ignore="LabelFor" />
 
     <Button
@@ -83,7 +87,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/accent"
         android:text="@string/save_account_details"
-        android:textColor="@color/secondary_text"
+        android:textColor="@color/primary_dark"
         app:layout_constraintBottom_toTopOf="@+id/logOutButton"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -92,10 +96,10 @@
         android:layout_width="125dp"
         android:layout_height="50dp"
         android:layout_marginEnd="140dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="30dp"
         android:backgroundTint="@color/accent"
         android:text="@string/log_out"
-        android:textColor="@color/secondary_text"
+        android:textColor="@color/primary_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
