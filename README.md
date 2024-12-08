@@ -17,6 +17,7 @@ Refreshments is a Kotlin-based project that saves users and their data in Fireba
 
 Refreshments is entirely reliant on user data, as such you must create an account. 
 
+![Sign In](https://github.com/UpwardRow/Refreshments/blob/main/Sign%20In.png)
 
 Once signed in, you can add your custom or predefined quick filters. Quick filters do the same thing as the custom filters, they are just faster to use if you have pre-existing conditions you would like to account for.
 
