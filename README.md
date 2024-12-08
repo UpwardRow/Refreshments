@@ -19,10 +19,18 @@ Refreshments is entirely reliant on user data, as such you must create an accoun
 
 ![Sign In](https://github.com/UpwardRow/Refreshments/blob/main/Sign%20In.png)
 
-Once signed in, you can add your custom or predefined quick filters. Quick filters do the same thing as the custom filters, they are just faster to use if you have pre-existing conditions you would like to account for.
+Once signed in, you can add your custom or predefined quick filters. 
 
+![Home Screen](https://github.com/UpwardRow/Refreshments/blob/main/Home%20Screen.png)
+
+Quick filters do the same thing as the custom filters, they are just faster to use if you have pre-existing conditions you would like to account for.
+
+![Quick Filters](https://github.com/UpwardRow/Refreshments/blob/main/Quick%20Filters.png)
 
 Your account can be edited and added to as you would like. 
 
+![Account](https://github.com/UpwardRow/Refreshments/blob/main/Account.png)
 
 Now, search for recipes! All of the chosen filters will be applied to the search.
+
+![Search Results](https://github.com/UpwardRow/Refreshments/blob/main/Search%20Results.png)
