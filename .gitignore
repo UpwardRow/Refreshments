@@ -111,5 +111,5 @@ amplifytools.xcconfig
 **.sample
 #amplify-do-not-edit-end
 
-# Generated Bundle
+# Generated Bundle		
 app/release/app-release.aab
