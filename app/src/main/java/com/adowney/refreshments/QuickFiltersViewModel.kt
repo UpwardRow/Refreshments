@@ -51,7 +51,6 @@ class QuickFiltersViewModel : ViewModel() {
     }
 
    private suspend fun fetchQuickFiltersFromFirebase(quickFiltersListNames: List<String>): MutableMap<String, Any?>{
-       var myValue =  databaseReference.child("Users").child(uid).child("QuickFilters")
 
        /*
        This CompletableDeferred will essentially be used to turn my Firebase callback into a
